@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liquid Glass Apple Style</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    min-height: 100vh;
+    color: #fff;
+  }
+  .bg {
+    position: fixed;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;
+    filter: saturate(1.2) contrast(1.1);
+    z-index: -1;
+  }
+  /* Liquid Glass base */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+    -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      transparent 60%
+    );
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  nav.liquid-glass {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    height: 64px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+  .nav-icons { display: flex; gap: 10px; align-items: center; }
+  .icon-btn, .btn {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 
+      inset 0 1px 0 rgba(255,255,255,0.3),
+      0 2px 8px rgba(0,0,0,0.15);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  .icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .btn {
+    padding: 10px 18px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .icon-btn:hover, .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.04);
+    box-shadow: 
+      inset 0 1px 0 rgba(255,255,255,0.4),
+      0 4px 12px rgba(0,0,0,0.2);
+  }
+  .content {
+    padding: 120px 24px 120px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 { 
+    font-size: 42px; 
+    margin-bottom: 12px; 
+    font-weight: 700; 
+    letter-spacing: -1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  p { 
+    font-size: 17px; 
+    line-height: 1.55; 
+    opacity: 0.92; 
+    margin-bottom: 28px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .bottom-bar.liquid-glass {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    height: 64px;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+    padding: 0 8px;
+  }
+  .bottom-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .bottom-icon:hover { 
+    background: rgba(255, 255, 255, 0.18); 
+    transform: scale(1.06);
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <nav class="liquid-glass">
+    <div class="logo">Liquid Glass</div>
+    <div class="nav-icons">
+      <button class="icon-btn">🔔</button>
+      <button class="icon-btn">⚙️</button>
+      <button class="btn">Entrar</button>
+    </div>
+  </nav>
+  <div class="content">
+    <h1>Vidro líquido estilo Apple.</h1>
+    <p>Blur forte, highlight especular, borda iluminada e profundidade. Só nas barras, botões e ícones.</p>
+    <button class="btn">Botão glass</button>
+  </div>
+  <div class="bottom-bar liquid-glass">
+    <div class="bottom-icon">🏠</div>
+    <div class="bottom-icon">🔍</div>
+    <div class="bottom-icon">➕</div>
+    <div class="bottom-icon">👤</div>
+  </div>
+</body>
+</html>
