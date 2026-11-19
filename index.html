@@ -163,6 +163,9 @@
     font-size: 13px;
     padding: 8px 14px;
   }
+  #fileInput {
+    display: none;
+  }
 </style>
 </head>
 <body>
@@ -184,6 +187,8 @@
       <button class="btn" onclick="changeBg(1)">Oceano</button>
       <button class="btn" onclick="changeBg(2)">Cidade</button>
       <button class="btn" onclick="changeBg(3)">Abstrato</button>
+      <button class="btn" onclick="document.getElementById('fileInput').click()">Foto local</button>
+      <input type="file" id="fileInput" accept="image/*" onchange="handleLocalImage(this)">
     </div>
   </div>
   <div class="bottom-bar liquid-glass">
@@ -201,6 +206,15 @@ const bgs = [
 ];
 function changeBg(i) {
   document.getElementById('bg').style.backgroundImage = `url('${bgs[i]}')`;
+}
+function handleLocalImage(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('bg').style.backgroundImage = `url('${e.target.result}')`;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
 }
 </script>
 </body>
