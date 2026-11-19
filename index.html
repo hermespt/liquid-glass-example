@@ -116,7 +116,7 @@
       0 4px 12px rgba(0,0,0,0.2);
   }
   .content {
-    padding: 120px 24px 120px;
+    padding: 120px 24px 40px;
     max-width: 720px;
     margin: 0 auto;
   }
@@ -133,39 +133,6 @@
     opacity: 0.92; 
     margin-bottom: 28px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  }
-  .bottom-bar.liquid-glass {
-    position: fixed;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    height: 64px;
-    border-radius: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    z-index: 100;
-    padding: 0 8px;
-  }
-  .bottom-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 16px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .bottom-icon:hover { 
-    background: rgba(255, 255, 255, 0.18); 
-    transform: scale(1.06);
   }
   .bg-controls {
     display: flex;
@@ -204,12 +171,6 @@
       <button class="btn" onclick="document.getElementById('fileInput').click()">Foto local</button>
       <input type="file" id="fileInput" accept="image/*" onchange="handleLocalImage(this)">
     </div>
-  </div>
-  <div class="bottom-bar liquid-glass">
-    <div class="bottom-icon">🏠</div>
-    <div class="bottom-icon">🔍</div>
-    <div class="bottom-icon">➕</div>
-    <div class="bottom-icon">👤</div>
   </div>
 <script>
 const bgs = [
