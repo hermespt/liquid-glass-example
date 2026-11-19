@@ -18,6 +18,7 @@
     background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;
     filter: saturate(1.2) contrast(1.1);
     z-index: -1;
+    transition: background-image 0.4s ease;
   }
   /* Liquid Glass base */
   .liquid-glass {
@@ -152,10 +153,20 @@
     background: rgba(255, 255, 255, 0.18); 
     transform: scale(1.06);
   }
+  .bg-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .bg-controls button {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
 </style>
 </head>
 <body>
-  <div class="bg"></div>
+  <div class="bg" id="bg"></div>
   <nav class="liquid-glass">
     <div class="logo">Liquid Glass</div>
     <div class="nav-icons">
@@ -168,6 +179,12 @@
     <h1>Vidro líquido estilo Apple.</h1>
     <p>Blur forte, highlight especular, borda iluminada e profundidade. Só nas barras, botões e ícones.</p>
     <button class="btn">Botão glass</button>
+    <div class="bg-controls">
+      <button class="btn" onclick="changeBg(0)">Montanha</button>
+      <button class="btn" onclick="changeBg(1)">Oceano</button>
+      <button class="btn" onclick="changeBg(2)">Cidade</button>
+      <button class="btn" onclick="changeBg(3)">Abstrato</button>
+    </div>
   </div>
   <div class="bottom-bar liquid-glass">
     <div class="bottom-icon">🏠</div>
@@ -175,5 +192,16 @@
     <div class="bottom-icon">➕</div>
     <div class="bottom-icon">👤</div>
   </div>
+<script>
+const bgs = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
+  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80',
+  'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80',
+  'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=1920&q=80'
+];
+function changeBg(i) {
+  document.getElementById('bg').style.backgroundImage = `url('${bgs[i]}')`;
+}
+</script>
 </body>
 </html>
