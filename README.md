@@ -13,6 +13,16 @@ O efeito de glass (blur forte + highlight especular + borda iluminada) é aplica
 
 O conteúdo principal permanece limpo, sem glass.
 
+## Exemplos
+
+As imagens na pasta `examples/` são screenshots do efeito em diferentes fundos:
+
+- `examples/montanha.jpg` — Fundo de montanha com nuvens
+- `examples/cidade.jpg` — Fundo de cidade ao pôr do sol
+- `examples/abstrato.jpg` — Fundo abstrato com fios e estrutura
+
+Elas servem como referência visual do resultado final.
+
 ## Técnica
 
 - `backdrop-filter: blur(40px) saturate(180%)`
