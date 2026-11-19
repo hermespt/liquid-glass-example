@@ -116,7 +116,7 @@
       0 4px 12px rgba(0,0,0,0.2);
   }
   .content {
-    padding: 120px 24px 40px;
+    padding: 120px 24px 100px;
     max-width: 720px;
     margin: 0 auto;
   }
@@ -147,6 +147,15 @@
   #fileInput {
     display: none;
   }
+  .bottom-bar.liquid-glass {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    height: 64px;
+    border-radius: 28px;
+    z-index: 100;
+  }
 </style>
 </head>
 <body>
@@ -172,6 +181,7 @@
       <input type="file" id="fileInput" accept="image/*" onchange="handleLocalImage(this)">
     </div>
   </div>
+  <div class="bottom-bar liquid-glass"></div>
 <script>
 const bgs = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
