@@ -15,7 +15,7 @@
   .bg {
     position: fixed;
     inset: 0;
-    background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;
+    background: url('examples/montanha.jpg') center/cover;
     filter: saturate(1.2) contrast(1.1);
     z-index: -1;
     transition: background-image 0.4s ease;
@@ -156,6 +156,21 @@
     border-radius: 28px;
     z-index: 100;
   }
+  .examples {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .examples img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .examples h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 8px;
+  }
 </style>
 </head>
 <body>
@@ -173,24 +188,23 @@
     <p>Blur forte, highlight especular, borda iluminada e profundidade. Só nas barras, botões e ícones.</p>
     <button class="btn">Botão glass</button>
     <div class="bg-controls">
-      <button class="btn" onclick="changeBg(0)">Montanha</button>
-      <button class="btn" onclick="changeBg(1)">Oceano</button>
-      <button class="btn" onclick="changeBg(2)">Cidade</button>
-      <button class="btn" onclick="changeBg(3)">Abstrato</button>
+      <button class="btn" onclick="changeBg('examples/montanha.jpg')">Montanha</button>
+      <button class="btn" onclick="changeBg('examples/cidade.jpg')">Cidade</button>
+      <button class="btn" onclick="changeBg('examples/abstrato.jpg')">Abstrato</button>
       <button class="btn" onclick="document.getElementById('fileInput').click()">Foto local</button>
       <input type="file" id="fileInput" accept="image/*" onchange="handleLocalImage(this)">
+    </div>
+    <div class="examples">
+      <h2>Exemplos de uso</h2>
+      <img src="examples/montanha.jpg" alt="Exemplo montanha">
+      <img src="examples/cidade.jpg" alt="Exemplo cidade">
+      <img src="examples/abstrato.jpg" alt="Exemplo abstrato">
     </div>
   </div>
   <div class="bottom-bar liquid-glass"></div>
 <script>
-const bgs = [
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
-  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80',
-  'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80',
-  'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=1920&q=80'
-];
-function changeBg(i) {
-  document.getElementById('bg').style.backgroundImage = `url('${bgs[i]}')`;
+function changeBg(url) {
+  document.getElementById('bg').style.backgroundImage = `url('${url}')`;
 }
 function handleLocalImage(input) {
   if (input.files && input.files[0]) {
